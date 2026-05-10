@@ -37,6 +37,19 @@ function displayFormatted(id, timeObj) {
         `${timeObj.seconds} seconds`;
 }
 
+// --- LOCAL VISIT COUNTER ---
+let visits = localStorage.getItem("timemiller_visits");
+
+if (!visits) {
+  visits = 1;
+} else {
+  visits = parseInt(visits) + 1;
+}
+
+localStorage.setItem("timemiller_visits", visits);
+document.getElementById("visits").textContent = "Visits: " + visits;
+
+
 // --- MAIN UPDATE LOOP ---
 function updateTime() {
     const now = new Date();
