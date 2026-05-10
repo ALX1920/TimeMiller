@@ -1,5 +1,22 @@
 
-@import url("./components/reset.css");
-@import url("./components/layout.css");
-@import url("./components/header.css");
-@import url("./components/secciones.css");
+@import url("components/reset.css");
+@import url("components/layout.css");
+@import url("components/header.css");
+@import url("components/secciones.css");
+
+/* Color dinámico + borde negro para máxima visibilidad */
+body {
+  animation: colorShift 6s infinite alternate;
+  -webkit-text-stroke: 1px #000000; /* borde negro */
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.9); /* brillo suave */
+}
+
+/* Animación de color */
+@keyframes colorShift {
+  0%   { color: #ffffff; }
+  25%  { color: #ffd27f; }
+  50%  { color: #ff9f43; }
+  75%  { color: #7fceff; }
+  100% { color: #ffffff; }
+}
+
