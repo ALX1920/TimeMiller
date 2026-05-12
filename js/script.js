@@ -38,7 +38,7 @@ function displayFormatted(id, timeObj) {
 }
 
 // --- LOCAL VISIT COUNTER ---
-let visits = localStorage.getItem("timemiller_visits");
+/*let visits = localStorage.getItem("timemiller_visits");
 
 if (!visits) {
   visits = 1;
@@ -47,7 +47,7 @@ if (!visits) {
 }
 
 localStorage.setItem("timemiller_visits", visits);
-document.getElementById("visits").textContent = "Visits: " + visits;
+document.getElementById("visits").textContent = "Visits: " + visits;*/
 
 
 // --- MAIN UPDATE LOOP ---
