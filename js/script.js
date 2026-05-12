@@ -11,7 +11,10 @@ function formatTime(ms) {
     totalSeconds %= 86400;
 
     let years = Math.floor(totalDays / 365);
-    let days = totalDays % 365;
+    let remainingDays = totalDays % 365;
+
+    let months = Math.floor(remainingDays / 30);
+    let days = remainingDays % 30;
 
     let hours = Math.floor(totalSeconds / 3600);
     totalSeconds %= 3600;
@@ -21,6 +24,7 @@ function formatTime(ms) {
 
     return {
         years,
+        months,
         days,
         hours,
         minutes,
@@ -31,6 +35,7 @@ function formatTime(ms) {
 function displayFormatted(id, timeObj) {
     document.getElementById(id).textContent =
         `${timeObj.years} years, ` +
+        `${timeObj.months} months, ` +
         `${timeObj.days} days, ` +
         `${timeObj.hours} hours, ` +
         `${timeObj.minutes} minutes, ` +
