@@ -5,10 +5,11 @@
 @import url("components/secciones.css");
 
 /* Color dinámico + borde negro para máxima visibilidad */
-body {
+body, p, h1, h2, h3, h4, h5, h6, span, div {
   animation: colorShift 6s infinite alternate;
   -webkit-text-stroke: 1px #000000; /* borde negro */
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.9); /* brillo suave */
+  font-weight: 600;
 }
 
 /* Animación de color */
@@ -19,4 +20,5 @@ body {
   75%  { color: #7fceff; }
   100% { color: #ffffff; }
 }
+
 
