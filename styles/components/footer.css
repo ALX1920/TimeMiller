@@ -1,7 +1,11 @@
-
 footer {
   text-align: center;
-  margin-top: 40px;
-  opacity: 0.6;
-  font-size: 0.9rem;
+  margin: 40px auto 0;
+  max-width: 780px;
+  opacity: 0.85;
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin-bottom: 10px;
 }
