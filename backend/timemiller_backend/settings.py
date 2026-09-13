@@ -1,7 +1,12 @@
 """
 Configuración de Django para timemiller_backend.
 
-Todo lo sensible o dependiente del entorno se lee de variables de entorno
+NOTA MÍA: este backend no está desplegado ni en uso todavía. Por ahora el
+contador de visitas de TimeMiller lo resuelvo con un badge externo (ver
+index.html). Dejo este backend armado y probado para el día que quiera
+tener mis propias estadísticas de visitas sin depender de un tercero.
+
+Leo todo lo sensible o dependiente del entorno desde variables de entorno
 (ver .env.example) para poder correr esto en Docker sin tocar código.
 """
 
@@ -28,7 +33,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "changeme-dev-secret-do-not-use
 DEBUG = env_bool("DJANGO_DEBUG", False)
 ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1")
 
-# Salt para anonimizar IPs antes de guardarlas (nunca se guarda la IP en texto plano)
+# Uso esta sal para anonimizar IPs antes de guardarlas (nunca guardo la IP en texto plano)
 VISIT_SALT = os.environ.get("VISIT_SALT", "changeme-salt")
 
 INSTALLED_APPS = [
@@ -74,8 +79,8 @@ TEMPLATES = [
 WSGI_APPLICATION = "timemiller_backend.wsgi.application"
 
 # --- Base de datos ---
-# SQLite es suficiente para un contador de visitas; se guarda en un volumen
-# de Docker para persistir entre despliegues (ver docker-compose.yml).
+# Elegí SQLite porque es suficiente para un contador de visitas; la guardo
+# en un volumen de Docker para que persista entre despliegues (ver docker-compose.yml).
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -101,17 +106,18 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # --- CORS ---
-# El frontend vive en otro dominio (GitHub Pages), así que hay que permitirlo
-# explícitamente. Configura CORS_ALLOWED_ORIGINS con el dominio real en prod.
+# Mi frontend vive en otro dominio (GitHub Pages), así que tengo que
+# permitirlo explícitamente. Configuro CORS_ALLOWED_ORIGINS con mi
+# dominio real cuando despliegue esto en producción.
 CORS_ALLOWED_ORIGINS = env_list(
     "CORS_ALLOWED_ORIGINS",
     "https://timemiller.gargantua.interestelar.alejandromtz.dev",
 )
 
-# Si DEBUG está activo (desarrollo local), permite cualquier origen para
-# facilitar pruebas rápidas.
+# Si tengo DEBUG activo (desarrollo local), permito cualquier origen para
+# probar más rápido.
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
 
-# Detrás de un proxy (nginx/Caddy) que termina TLS
+# Por si en el futuro pongo esto detrás de un proxy (nginx/Caddy) que termina TLS
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

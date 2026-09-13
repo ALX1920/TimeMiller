@@ -2,7 +2,7 @@ from django.db import models
 
 
 class VisitCounter(models.Model):
-    """Fila única (singleton) con el total acumulado de visitas."""
+    """Uso esta fila única (singleton) para guardar el total acumulado de visitas."""
 
     total = models.PositiveBigIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
@@ -22,9 +22,9 @@ class VisitCounter(models.Model):
 
 class VisitLog(models.Model):
     """
-    Registro de visitas únicas por día, identificadas por un hash de IP
-    (nunca se guarda la IP real). Sirve para no contar dos veces a la
-    misma persona el mismo día si recarga la página.
+    Guardo aquí un registro por visitante único al día, identificado con un
+    hash de su IP (nunca guardo la IP real). Me sirve para no contar dos
+    veces a la misma persona el mismo día si recarga la página.
     """
 
     ip_hash = models.CharField(max_length=64, db_index=True)

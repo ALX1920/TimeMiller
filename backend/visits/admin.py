@@ -8,7 +8,7 @@ class VisitCounterAdmin(admin.ModelAdmin):
     list_display = ("total", "updated_at")
 
     def has_add_permission(self, request):
-        # Es un singleton: no tiene sentido crear más de una fila.
+        # Es un singleton: no me tiene sentido crear más de una fila.
         return not VisitCounter.objects.exists()
 
 
