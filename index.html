@@ -1,51 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Miller</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeMiller — Reloj de dilatación temporal</title>
+  <meta name="description" content="TimeMiller calcula en tiempo real el tiempo transcurrido en la Tierra y su equivalente en el planeta de Miller (Interstellar), usando la relación 1 hora en Miller = 7 años en la Tierra.">
+  <meta name="theme-color" content="#0b0d14">
 
-    <link rel="stylesheet" href="styles/main.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="TimeMiller">
+  <meta property="og:description" content="Reloj en vivo inspirado en la dilatación temporal del planeta de Miller en Interstellar.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/img/gargantua.png">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%8C%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
-  <header>
-    <h1>TimeMiller</h1>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
-    <!-- Visit counter will be activated later -->
-    <!--<div id="visits">Visits: ...</div>-->
+  <header>
+    <p class="eyebrow">Interstellar · Dilatación temporal</p>
+    <h1>TimeMiller</h1>
+    <p class="subtitle">Un reloj en vivo entre la Tierra y el planeta de Miller</p>
+
+    <div id="visits" class="visits-badge" hidden>
+      <span aria-hidden="true">👁</span>
+      <span><span id="visits-count">—</span> visitas</span>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Time elapsed on Earth</h2>
-      <p id="earth-time"></p>
+  <main id="main">
+
+    <section class="panel" aria-labelledby="earth-heading">
+      <h2 id="earth-heading">Tiempo transcurrido en la Tierra</h2>
+      <div id="earth-time" class="time-grid" role="group" aria-label="Tiempo transcurrido en la Tierra"></div>
     </section>
 
-    <section>
-      <h2>Equivalent time on Miller</h2>
-      <p id="miller-time"></p>
+    <section class="panel panel--miller" aria-labelledby="miller-heading">
+      <h2 id="miller-heading">Tiempo equivalente en Miller</h2>
+      <div id="miller-time" class="time-grid" role="group" aria-label="Tiempo equivalente en el planeta de Miller"></div>
     </section>
 
-    <div id="info text">
-      Time has been running since November 7, 2014 at 00:00, based on the rule that 1 hour on Miller equals 7 years on Earth.
-    </div>
+    <section class="panel panel--meta" aria-label="Datos de referencia">
+      <dl class="meta-list">
+        <div>
+          <dt>Fecha de inicio</dt>
+          <dd id="start-date">—</dd>
+        </div>
+        <div>
+          <dt>Hora actual</dt>
+          <dd id="current-date">—</dd>
+        </div>
+      </dl>
+      <p id="info-text" class="info-text"></p>
+    </section>
+
   </main>
 
-  <footer style="text-align:center; margin-top:40px; padding:20px; opacity:0.85; font-size:14px;">
+  <footer>
+    <p>Si te gusta este proyecto, apóyalo en GitHub:</p>
+    <a href="https://github.com/ALX1920/TimeMiller" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/github/stars/ALX1920/TimeMiller?style=social" alt="GitHub stars de TimeMiller">
+    </a>
+  </footer>
 
-  <p style="margin-bottom:10px;">
-     If you like this project, support it on GitHub:
-  </p>
-
-  <a href="https://github.com/ALX1920/TimeMiller" target="_blank">
-    <img src="https://img.shields.io/github/stars/ALX1920/TimeMiller?style=social" 
-         alt="GitHub stars">
-  </a>
-
-</footer>
-
-  <!-- Clock logic -->
   <script src="js/script.js"></script>
 </body>
 </html>
