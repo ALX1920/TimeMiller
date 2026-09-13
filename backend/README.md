@@ -1,6 +1,6 @@
 # TimeMiller — Backend del contador de visitas (pendiente, para el futuro)
 
-> **Nota mía:** ahora mismo NO estoy usando este backend. El contador de
+> **Nota:** ahora mismo NO estoy usando este backend. El contador de
 > visitas de TimeMiller lo resuelvo con un badge externo (hitscounter.dev),
 > sin servidor propio — ver el `<img>` en `index.html`. Dejo este backend
 > armado, probado y documentado por si algún día quiero mis propias
@@ -13,10 +13,10 @@ nunca la IP en texto plano), no cada recarga de página.
 
 ## Endpoints
 
-| Método | Ruta                     | Qué hace                                              |
-|--------|--------------------------|--------------------------------------------------------|
-| GET    | `/api/visits/`           | Devuelve `{"visits": N}` sin incrementar el contador.  |
-| POST   | `/api/visits/register/`  | Registra la visita (si es la primera de esa IP hoy) y devuelve `{"visits": N, "counted": true|false}`. |
+| Método | Ruta                    | Qué hace                                                                                      |
+| ------ | ----------------------- | --------------------------------------------------------------------------------------------- | -------- |
+| GET    | `/api/visits/`          | Devuelve `{"visits": N}` sin incrementar el contador.                                         |
+| POST   | `/api/visits/register/` | Registra la visita (si es la primera de esa IP hoy) y devuelve `{"visits": N, "counted": true | false}`. |
 
 ## Si algún día decido activarlo
 
@@ -39,7 +39,7 @@ VPS) apuntando al puerto 8000.
 Ahora mismo `index.html` tiene esto:
 
 ```html
-<img src="https://hitscounter.dev/api/hit?url=...">
+<img src="https://hitscounter.dev/api/hit?url=..." />
 ```
 
 Si activo este backend, lo cambiaría por un pequeño `fetch` en `js/script.js`
