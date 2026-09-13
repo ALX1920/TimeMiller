@@ -7,7 +7,7 @@ const START_DATE = new Date("2014-11-07T00:00:00");
 const MILLER_RATIO_MS = 7 * 365 * 24 * 60 * 60 * 1000; // ms en la Tierra por 1 hora en Miller
 
 // URL del backend del contador de visitas (Django).
-// Déjalo vacío ("") para desactivar el contador sin tocar más código.
+// Se deja vacío ("") para desactivar el contador sin tocar más código.
 // Ejemplo: "https://api.tu-dominio.dev"
 const VISITS_API_BASE = "";
 

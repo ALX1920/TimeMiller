@@ -7,7 +7,7 @@
   <meta name="description" content="TimeMiller calcula en tiempo real el tiempo transcurrido en la Tierra y su equivalente en el planeta de Miller (Interstellar), usando la relación 1 hora en Miller = 7 años en la Tierra.">
   <meta name="theme-color" content="#0b0d14">
 
-  <!-- Open Graph -->
+  <!-- Open Graph: para que se vea bien si comparto el link -->
   <meta property="og:title" content="TimeMiller">
   <meta property="og:description" content="Reloj en vivo inspirado en la dilatación temporal del planeta de Miller en Interstellar.">
   <meta property="og:type" content="website">
@@ -26,9 +26,16 @@
     <h1>TimeMiller</h1>
     <p class="subtitle">Un reloj en vivo entre la Tierra y el planeta de Miller</p>
 
-    <div id="visits" class="visits-badge" hidden>
-      <span aria-hidden="true">👁</span>
-      <span><span id="visits-count">—</span> visitas</span>
+    <!-- Contador de visitas: uso un badge externo (hitscounter.dev) que
+         se actualiza solo, sin backend propio. Si algún día quiero mis
+         propias estadísticas, tengo un backend listo en /backend. -->
+    <div class="visits-badge">
+      <img
+        src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Ftimemiller.gargantua.interestelar.alejandromtz.dev&label=visitas&icon=eye-fill&color=%23ff9f43&style=flat-square"
+        alt="Contador de visitas de TimeMiller"
+        width="140"
+        height="20"
+        loading="lazy">
     </div>
   </header>
 
