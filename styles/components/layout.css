@@ -1,15 +1,26 @@
-
-/* Layout general */
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-/* Fondo cinematográfico */
+/* Fondo cinematográfico + estructura general de la página */
 body {
-  background: url("/img/gargantua.png") no-repeat center center fixed;
+  background-image:
+    linear-gradient(180deg, rgba(6, 7, 12, 0.82) 0%, rgba(6, 7, 12, 0.6) 40%, rgba(6, 7, 12, 0.9) 100%),
+    url("/img/gargantua.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
   overflow-x: hidden;
-  position: relative;
+  padding: 24px 20px 60px;
+}
+
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px 40px;
+  }
 }
