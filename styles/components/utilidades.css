@@ -1,0 +1,28 @@
+/* Utilidades y accesibilidad */
+
+/* Un único momento de animación deliberado (el título), no todo el texto */
+@media (prefers-reduced-motion: no-preference) {
+  header h1 {
+    animation: glow-pulse 5s ease-in-out infinite;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 18px rgba(255, 159, 67, 0.55), 0 0 3px rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 28px rgba(255, 159, 67, 0.85), 0 0 3px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
