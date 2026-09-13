@@ -1,8 +1,10 @@
 /* =========================================================
    TimeMiller — main.css
-   Punto de entrada único: conecta todos los componentes CSS
-   con el HTML. No agregues reglas sueltas aquí, van en
-   /styles/components/*.css
+
+   Este es mi punto de entrada único: aquí solo importo los
+   componentes, no pongo reglas sueltas. Si necesito agregar
+   un estilo nuevo, lo pongo en su propio archivo dentro de
+   /styles/components/ y lo importo aquí.
    ========================================================= */
 
 @import url("components/reset.css");
