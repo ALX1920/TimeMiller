@@ -1,4 +1,5 @@
-/* Grid de dígitos estilo panel de nave / telemetría */
+/* Armé este grid de dígitos para que se sienta como un panel de nave /
+   telemetría, en vez de una oración larga con todos los números seguidos */
 .time-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
