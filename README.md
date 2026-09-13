@@ -1,33 +1,81 @@
 # ⏳ TimeMiller
 
-A real‑time clock inspired by the time dilation on Miller's planet from _Interstellar_.
+Un reloj en vivo inspirado en la dilatación temporal del planeta de Miller en
+_Interstellar_.
 
-TimeMiller calculates the exact amount of time that has passed on Earth since **November 7, 2014 – 00:00** (the film’s release date) and converts it into the equivalent time on **Miller’s planet**, using the canonical ratio:
+TimeMiller calcula el tiempo exacto transcurrido en la Tierra desde el
+**7 de noviembre de 2014 – 00:00** (fecha de estreno de la película) y lo
+convierte en el tiempo equivalente en **el planeta de Miller**, usando la
+proporción canónica:
 
-**1 hour on Miller = 7 years on Earth**
+**1 hora en Miller = 7 años en la Tierra**
 
-The page updates every second and requires no maintenance.  
-Visitors can watch both clocks run in real time.
+La página se actualiza cada segundo y no requiere mantenimiento.
 
-## Features
+## Características
 
-- Real‑time Earth time counter (years, months, days, hours, minutes, seconds)
-- Real‑time Miller time counter (hours, minutes, seconds)
-- Automatic live updates (no refresh needed)
-- Visit counter displayed at the top
-- Fully original design inspired by _Interstellar_
-- 100% copyright‑safe (no official images, logos, or audio)
+- Reloj en vivo del tiempo terrestre (años, meses, días, horas, min, seg)
+- Reloj en vivo del tiempo equivalente en Miller
+- Actualización automática, sin recargar
+- Panel tipo HUD/telemetría de nave para mostrar los tiempos
+- Contador de visitantes únicos por día (opcional, requiere el backend)
+- Diseño 100% original, sin imágenes ni audio oficiales de la película
 
-## Purpose
+## Estructura del proyecto
 
-TimeMiller is a fan‑made project created to visualize the dramatic time dilation shown in _Interstellar_.  
-It is built slowly, piece by piece, so the commit history becomes part of the experience.
+```
+timemiller/
+├── index.html
+├── js/
+│   └── script.js
+├── styles/
+│   ├── main.css                 # conecta todos los componentes
+│   └── components/
+│       ├── reset.css
+│       ├── layout.css
+│       ├── header.css
+│       ├── secciones.css
+│       ├── reloj.css
+│       ├── footer.css
+│       └── utilidades.css
+├── img/
+│   └── gargantua.png
+├── backend/                      # API opcional del contador de visitas
+│   ├── manage.py
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── .env.example
+│   ├── README.md                 # instrucciones de despliegue
+│   ├── timemiller_backend/       # settings del proyecto Django
+│   └── visits/                   # app: modelo, vistas y endpoints
+└── documentation/
+```
 
-## Status
+## Cómo activar el contador de visitas
 
-Actively developed.  
-More visual elements and animations will be added over time.
+El sitio funciona igual sin backend (el contador simplemente no se muestra).
+Si quieres activarlo:
 
-## License
+1. Despliega el backend — instrucciones completas en
+   [`backend/README.md`](backend/README.md) (Docker + Django, listo para
+   correr con `docker compose up --build -d`).
+2. En `js/script.js`, pon la URL pública de tu backend en
+   `VISITS_API_BASE`.
 
-For personal and educational use.
+El contador cuenta **personas únicas por día** (por IP anonimizada con hash),
+no cada recarga de página.
+
+## Desarrollo local
+
+Es un sitio estático: basta con abrir `index.html` en el navegador, o servirlo
+con cualquier servidor simple:
+
+```bash
+python3 -m http.server 8000
+```
+
+## Licencia
+
+Uso personal y educativo. Proyecto de fans, sin afiliación con Warner Bros.
+ni con la producción de _Interstellar_.
