@@ -1,4 +1,5 @@
-/* Fondo cinematográfico + estructura general de la página */
+/* Uso un degradado oscuro sobre la imagen para tener contraste real,
+   en vez de forzarlo con stroke negro en el texto como antes */
 body {
   background-image:
     linear-gradient(180deg, rgba(6, 7, 12, 0.82) 0%, rgba(6, 7, 12, 0.6) 40%, rgba(6, 7, 12, 0.9) 100%),
