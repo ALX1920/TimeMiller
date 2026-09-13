@@ -1,6 +1,7 @@
 /* Utilidades y accesibilidad */
 
-/* Un único momento de animación deliberado (el título), no todo el texto */
+/* Decidí gastar mi único "momento de animación" en el título, en vez de
+   animar todo el texto de la página como tenía antes con el color-shift */
 @media (prefers-reduced-motion: no-preference) {
   header h1 {
     animation: glow-pulse 5s ease-in-out infinite;
@@ -16,7 +17,7 @@
   }
 }
 
-/* Respeta a quien prefiere menos movimiento */
+/* Respeto a quien prefiere menos movimiento en pantalla */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

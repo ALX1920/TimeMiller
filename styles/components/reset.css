@@ -1,4 +1,4 @@
-/* Reset base */
+/* Reset base que uso en todo el sitio */
 *,
 *::before,
 *::after {
@@ -27,7 +27,7 @@ a {
   color: inherit;
 }
 
-/* Accesibilidad: oculto visualmente pero disponible para lectores de pantalla */
+/* Dejo esto oculto visualmente pero disponible para lectores de pantalla */
 .skip-link {
   position: absolute;
   left: -9999px;
