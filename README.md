@@ -18,7 +18,7 @@ La página se actualiza cada segundo y no requiere mantenimiento.
 - Reloj en vivo del tiempo equivalente en Miller
 - Actualización automática, sin recargar
 - Panel tipo HUD/telemetría de nave para mostrar los tiempos
-- Contador de visitantes únicos por día (opcional, requiere el backend)
+- Contador de visitantes activo por defecto (badge externo, sin backend propio)
 - Diseño 100% original, sin imágenes ni audio oficiales de la película
 
 ## Estructura del proyecto
@@ -40,7 +40,7 @@ timemiller/
 │       └── utilidades.css
 ├── img/
 │   └── gargantua.png
-├── backend/                      # API opcional del contador de visitas
+├── backend/                       # backend del contador — pendiente, no en uso (ver Nota en su README)
 │   ├── manage.py
 │   ├── requirements.txt
 │   ├── Dockerfile
@@ -52,19 +52,17 @@ timemiller/
 └── documentation/
 ```
 
-## Cómo activar el contador de visitas
+## Cómo funciona el contador de visitas
 
-El sitio funciona igual sin backend (el contador simplemente no se muestra).
-Si quieres activarlo:
+Uso un badge externo (hitscounter.dev) que se actualiza solo cada vez que
+alguien carga la página — no necesito servidor propio ni JavaScript extra
+para esto. Está activo por defecto, apuntando a mi dominio
+(`timemiller.gargantua.interestelar.alejandromtz.dev`).
 
-1. Despliega el backend — instrucciones completas en
-   [`backend/README.md`](backend/README.md) (Docker + Django, listo para
-   correr con `docker compose up --build -d`).
-2. En `js/script.js`, pon la URL pública de tu backend en
-   `VISITS_API_BASE`.
-
-El contador cuenta **personas únicas por día** (por IP anonimizada con hash),
-no cada recarga de página.
+Cuenta cargas de página, no personas únicas — si algún día quiero un conteo
+más preciso de visitantes únicos y control total de mis datos, ya tengo un
+backend en Django armado y documentado en [`backend/README.md`](backend/README.md)
+(no lo estoy usando por ahora, queda ahí para el futuro).
 
 ## Desarrollo local
 
